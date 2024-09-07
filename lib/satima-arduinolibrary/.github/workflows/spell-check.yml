@@ -1,0 +1,21 @@
+name: Spell Check
+
+on:
+  push:
+  pull_request:
+  schedule:
+    # Run every Tuesday at 4 AM UTC to catch new misspelling detections resulting from dictionary updates.
+    - cron: "0 4 * * TUE"
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  spellcheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Spell check
+        uses: codespell-project/actions-codespell@master

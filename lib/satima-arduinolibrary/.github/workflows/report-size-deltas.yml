@@ -1,0 +1,13 @@
+name: Report Size Deltas
+
+on: [push, pull_request]
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    # if: github.event_name == 'pull_request' # Only run the job when the workflow is triggered by a pull request
+    steps:
+      - name: Comment size deltas reports to PRs
+        uses: arduino/report-size-deltas@v1.0.0
+        with:
+          # The name of the workflow artifact created by the sketch compilation workflow
+          sketches-reports-source: sketches-reports

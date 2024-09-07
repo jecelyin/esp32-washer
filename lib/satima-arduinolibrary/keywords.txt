@@ -1,0 +1,26 @@
+#######################################
+# Syntax Coloring Map For DRV8870
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DRV8870	KEYWORD1    DRV8870
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setMaxSpeed KEYWORD2
+setSpeed    KEYWORD2
+brake   KEYWORD2
+version KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+CLOCKWISE LITERAL1
+COUNTERCLOCKWISE LITERAL1
+COAST LITERAL1
+BRAKE LITERAL1
