@@ -259,7 +259,7 @@ void startFillingWater()
   workingTime = 0;
   fillingStartTime = millis();
   prevTime = millis();
-  totalTime = 0;
+  
   onStatusChanged();
   digitalWrite(MIN_EN, HIGH);
 }
@@ -324,8 +324,7 @@ void spinningEnd()
   // 时间还有1分钟以上，进入下一次洗涤，避免时间计算误差
   if (totalTime < washDuration - 60)
   {
-    currentState = FILLING_WATER;
-    digitalWrite(MIN_EN, HIGH);
+    startFillingWater();
   }
   else
   {
@@ -433,6 +432,7 @@ void loop()
   // 3秒后进入加水状态
   if (currentState == SELECTING_TIME && millis() - selectingStartTime >= 3000)
   {
+    totalTime = 0;
     startFillingWater();
   }
   // 加满水后进入清洗状态
