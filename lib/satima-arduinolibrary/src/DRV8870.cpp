@@ -26,6 +26,7 @@ void DRV8870::setMaxSpeed(int max_speed)
 }
 void DRV8870::setSpeed(int motor_speed, int direction)
 {
+    Serial.println("Setting speed");
     switch (this->_motor_count)
     {
     case 1:
@@ -69,6 +70,7 @@ void DRV8870::setSpeed(int motor_speed, int direction)
 }
 void DRV8870::brake(int mode)
 {
+    Serial.println("Braking");
     if (mode == COAST)
     {
         switch (this->_motor_count)
