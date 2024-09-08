@@ -182,7 +182,7 @@ void setupOTA()
 #define LONG_WASH_DURATION 80 * 60
 #define SHORT_WASH_DURATION 60 * 60
 // 脱水时间
-#define SPINNING_TIME 5 * 60
+#define SPINNING_TIME 2 * 60
 // 排水时间
 #define DRAINING_TIME 4 * 60
 
@@ -292,17 +292,19 @@ void startDraining()
 
 void washing()
 {
-  if (workingTime >= washTime * 1000)
+  if (workingTime >= washTime)
   { // 进入排水状态
     startDraining();
   }
-  else if (workingTime / 10000 % 2 == 0)
+  else if (workingTime / 10 % 2 == 0)
   { // 每10秒反转一次
     main_motor.setSpeed(255, CLOCKWISE);
+    delay(500);
   }
   else
   {
     main_motor.setSpeed(255, COUNTERCLOCKWISE);
+    delay(500);
   }
 }
 
